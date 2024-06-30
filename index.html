@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>哈尔滨医科大学大庆校区数据查询界面</title>
+    <style>
+      
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{text-decoration: none;}
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+
+header {
+  background-color: #4CAF50;
+  padding: 20px;
+  text-align: center;
+  background:url('https://s2.loli.net/2024/06/29/gAyMmEZYjHpNouv.jpg') no-repeat;
+  background-size:cover ;
+
+}
+
+header h1 {
+  margin-bottom: 10px;
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 25px;
+}
+
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  background-color: #3e8e41;
+  padding: 10px 0;
+  list-style:none;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #fff;
+  transition: all 0.3s ease;.3
+  text-decoration:none;
+}
+
+nav a:hover {
+  color: red;
+  text-decoration: none;
+}
+
+
+.search {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.search input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search button:hover {
+  background-color: #45a049;
+}
+
+
+.table{
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 30px;
+}
+.table td{
+  height: 50px;
+  border:1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+.select-style{
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 16px;
+  padding: 5px;
+}
+#messagegetin{
+  margin: 0 auto;
+  width: 70%;
+  font-size: 28px;
+  text-align: left;
+  margin-left: 500px;
+  margin-top: 50px;
+}
+div input{
+  width: 50%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+div label{
+  margin-bottom: 10px;
+}
+div textarea{
+  margin-bottom: 10px;
+}
+div select{
+  margin-bottom: 10px;
+}
+div button{
+  text-align: center;
+  height: 40px;
+  width: 10%;
+}
+button{
+  text-align: center;
+  height: 40px;
+  width: 10%;
+}
+button a:visited{
+  color: black;
+}
+#andback{
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+#player{
+  width: 300px;
+  margin: 0 auto;
+  border: 10px white;
+  margin-left: 1200px;
+  margin-top: -60px;
+}
+#controls{
+  margin-top: 20px;
+}
+controls button{
+  text-align: center;
+  height: 40px;
+  width: 10%;
+}
+#time{
+  margin-top: 10px;
+}
+
+
+.hot-keywords {
+  padding: 30px 0;
+}
+
+.hot-keywords h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.hot-keywords ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hot-keywords li {
+  margin: 10px 15px;
+}
+
+.hot-keywords a {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #ddd;
+  color: #333;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hot-keywords a:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+.n1{
+          width: 15%;
+          text-align: center;
+          text-decoration: none;
+          border: 10px white;
+      }
+      .n1:hover{
+          width: 15%;
+          text-align: center;
+          text-decoration: none;
+          border: 10px white;
+          background-color:#006000;
+      }
+      #a1{
+          width: 500px;
+          margin: 20px;
+          margin-left: 110px;
+      }
+      #b1{
+          width: 500px;
+          margin: 20px;
+          margin-left: 110px;
+      }
+      #c1{
+          float: right;
+          margin-right: 200px;
+          margin-top: 20px;
+      }
+      .slider {
+        width: 380px;
+        height: 260px;
+        overflow: hidden;
+        float: left;
+        margin-left: 200px;
+        margin-top: 22px;
+      }
+      .slider-wrapper {
+        width: 1800px;
+        height: 400px;
+        display: flex;
+        transition: transform 1s ease;
+      }
+      .slider-wrapper img {
+        width: 380px;
+        height: 260px;
+      }
+      .slider-wrapper img:hover {
+        width: 380px;
+        height: 260px;
+        -webkit-filter:blur(1px) ;
+        filter:blur(1px);
+      }        
+      #slidder{
+          width: 120px;
+          height: 80%;
+          float: left;
+          margin: 30px;
+          font-size: 36px;
+          writing-mode: vertical-rl;
+          letter-spacing: 5px;
+          font-family:仿宋;
+          color:#501717;
+          text-shadow: 2px 2px 1px gold;
+
+      }
+      .input-container {
+width: 200px;
+position: fixed;
+right:5px;
+top:80px;
+}
+
+.icon {
+position: absolute;
+right: 10px;
+top: calc(50% + 5px);
+transform: translateY(calc(-50% - 5px));
+}
+
+.input {
+width: 100%;
+height: 40px;
+padding: 10px;
+transition: .2s linear;
+border: 2.5px solid black;
+font-size: 14px;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.input:focus {
+outline: none;
+border: 0.5px solid black;
+box-shadow: -5px -5px 0px black;
+}
+
+.input-container:hover > .icon {
+animation: anim 1s linear infinite;
+}
+
+@keyframes anim {
+0%,
+100% {
+  transform: translateY(calc(-50% - 5px)) scale(1);
+}
+
+50% {
+  transform: translateY(calc(-50% - 5px)) scale(1.1);
+}
+}
+#d1{
+  background:url('https://s2.loli.net/2024/06/29/IinXGv5p3NerKOM.png') no-repeat center;background-size: 100%;"
+}
+.bj1{
+  background:url('https://s2.loli.net/2024/06/29/e72FoyZbSUHjKcp.jpg') no-repeat;background-size:cover;
+}
+#c1{
+  font-size: 22px;
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 50px;">医大数据</h1>
+        <p style="font-size: 25px;">哈尔滨医科大学大庆校区</p>    
+
+
+  <div class="input-container">
+
+<button id="play">播放</button>
+                <button id="pause">暂停</button>
+                <button id="stop">停止</button>
+   
+  <input type="rang" name="text" class="input" min="0" max="1" step="0.1" placeholder="要来点音乐吗？">
+  <span class="icon"> 
+    <svg width="19px" height="19px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path opacity="1" d="M14 5H20" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M14 8H17" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="1" d="M22 22L20 20" stroke="#000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+  </span>
+</div>
+         
+            <audio id="audio" preload="auto">
+                <source src="xiaying.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <script>
+            let audio=document.getElementById('audio');
+            let playButton=document.getElementById('play');
+            let pauseButton=document.getElementById('pause');
+            let stopButton=document.getElementById('stop');
+            let volumeControl=document.getElementById('volume');
+            let currentTimeDisplay=document.getElementById('time');
+            let totalTimeDisplay=document.getElementById('total-time');
+            playButton.addEventListener('click',function(){audio.play();});
+            pauseButton.addEventListener('click',function(){audio.pause();});
+            stopButton.addEventListener('click',function(){audio.pause();audio.currentTime=0;});
+            
+        </script>
+    </header>
+
+    <nav>
+        <ul>
+            <!-- <div class="n1"><a href="姓名数据.html">姓名数据</a></div> -->
+            <div class="n1"><a href="age.php">年龄数据</a></div>
+            <div class="n1"><a href="class.php">班级数据</a></div>
+            <div class="n1"><a href="hobby.php">兴趣数据</a></div>
+            <div class="n1"><a href="goodat.php">特长数据</a></div>
+            <div class="n1"><a href="home.php">居住地数据</a></div>
+            <div class="n1"><a href="address.php">籍贯数据</a></div>
+            <div class="n1"><a href="insert.php">信息录入</a></div>
+             <div class="n1"><a href="myschool.php">总表</a></div>
+        </ul>
+    </nav>
+    <div class="bj1">
+     <section class="search">
+       <form action="https://www.baidu.com/s" method="get">
+            <input type="text" name="wd" placeholder="如：医学信息学系" >
+            <button type="submit">搜索</button>
+        </form>
+    </section>
+    <div style="float: left;"> 
+                    <div class="slider">
+                      <div class="slider-wrapper">
+                        <img src="https://s2.loli.net/2024/06/25/gPB7XeuozUQ2s6E.jpg" >
+                        <img src="https://s2.loli.net/2024/06/25/2h8PbQngfTHiGqv.jpg" >
+                        <img src="https://s2.loli.net/2024/06/25/aIjM6187AFLBZvC.jpg" >
+                      </div>
+                    </div>
+                    <script>
+                      function slider() {
+                        var wrapper = document.querySelector('.slider-wrapper');
+                        var images = document.querySelectorAll('.slider-wrapper img');
+                        var width = images[0].width;
+                        var count = images.length;
+                        var currentIndex = 0;
+                        setInterval(function() {
+                          currentIndex = (currentIndex + 1) % count;
+                          wrapper.style.transform = 'translateX(-' + width * currentIndex + 'px)';
+                        }, 3000);
+                      }
+                      slider();
+                    </script>
+    </div>
+    <div id="c1">
+        <div style="background-color: white;"><img src="https://s2.loli.net/2024/06/29/QeBdKvmpWXgLAsl.webp" height="30px width:30px"><a style="font-size: 20px;">综合新闻</a><a href="https://news.hmudq.edu.cn/zhxw/index.jhtml" style="float:right;color: black;">更多>></a></div>
+        <div>•
+        <a href="https://news.hmudq.edu.cn/sdxq/47688.jhtml"> 党委书记王晓星为全体中层领导干部讲授纪律党课2024-06-18</a></div>
+        <hr>
+        <div>•
+            <a href="https://news.hmudq.edu.cn/zhxw/47571.jhtml">大庆市科技局局长汪严明来我校工作调研2024-06-11</a></div>
+        <hr>
+        <div>•
+        <a href="https://news.hmudq.edu.cn/zhxw/47482.jhtml" > 
+        学校召开党委理论学习中心组（扩大）学习会2024-06-06</a></div>
+        <hr>
+        <div>•
+            <a href="https://news.hmudq.edu.cn/zhxw/47357.jhtml">龙凤区委书记曾宇凡一行来我校工作调研2024-05-2</a></div>
+        <hr>        
+        <div>•
+            <a href="https://news.hmudq.edu.cn/zhxw/47263.jhtml">
+            驰骋赛场 青春飞扬：学校举办2024年田径运动会2024-05-2</a></div>
+        <hr>
+        <div>•
+        <a href="https://news.hmudq.edu.cn/zhxw/47331.jhtml">
+        立德树人担使命：王晓星讲授思政课2024-05-22</a></div>
+        <hr>
+    </div>
+    <section class="hot-keywords">
+        <h2 style="margin-left: 90px;clear: both;">院系:</h2>
+        <ul>
+            <li><a href="https://yxxx.hmudq.edu.cn/">医学信息学系</a></li>
+            <li><a href="https://rwxy.hmudq.edu.cn/">人文社会科学系</a></li>
+            <li><a href="https://jcyxy.hmudq.edu.cn/">基础医学院</a></li>
+            <li><a href="https://hlxy.hmudq.edu.cn/">哈尔滨医科大学护理学院</a></li>
+            <li><a href="https://jyyjs.hmudq.edu.cn/">医学检验与技术学院</a></li>
+            <li><a href="https://yxy.hmudq.edu.cn/">药学院</a></li>
+            <li><a href="https://lcyxy.hmudq.edu.cn/">临床医学院</a></li>
+            <!-- 确保链接准确无误 -->
+        </ul>
+    </section>
+</div>
+
+    <hr size="2" color="red" width="100%"/>
+    <p align="center">Web信息管理与信息系统2班前端开发技术工作室 Copyright &copy;2023-2024</p>
+
+    <!-- 考虑在此处添加实际的JavaScript脚本链接 -->
+</body>
+</html>
